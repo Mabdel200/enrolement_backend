@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -27,5 +30,9 @@ public class Customer {
     private String nomTuteur;
     private String lieuResidence;
     private String regionOrigine;
+    private Boolean statut = true;
+
+//    @OneToMany(mappedBy = "customer")
+//    private List<Payment> payments = new ArrayList<>();
 
 }

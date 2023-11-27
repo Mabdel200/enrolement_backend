@@ -23,7 +23,7 @@ public class CustomerController {
     public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer){
 
         if(customer == null){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
         Customer customer1 = customerRepository.save(customer);
         return new ResponseEntity<>(customer1, HttpStatus.OK);

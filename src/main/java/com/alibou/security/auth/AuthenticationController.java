@@ -1,6 +1,5 @@
 package com.alibou.security.auth;
 
-
 import com.alibou.security.entities.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
