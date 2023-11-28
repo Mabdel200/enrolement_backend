@@ -53,6 +53,7 @@ public class AuthenticationService {
                 .refreshToken(refreshToken)
                 .mfaEnabled(user.isMfaEnabled())
                 .role(user.getRole())
+                .id(user.getId())
                 .build();
     }
 
@@ -65,8 +66,9 @@ public class AuthenticationService {
         );
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow();
-//        region access role add by abdel
+//        region access role and id add by abdel
         var role = user.getRole();
+        var idUser     = user.getId();
 //                end region
         if (user.isMfaEnabled()) {
             return AuthenticationResponse.builder()
@@ -74,6 +76,7 @@ public class AuthenticationService {
                     .refreshToken("")
                     .mfaEnabled(true)
                     .role(role)
+                    .id(idUser)
                     .build();
         }
         var jwtToken = jwtService.generateToken(user);
@@ -83,6 +86,7 @@ public class AuthenticationService {
                 .refreshToken(refreshToken)
                 .mfaEnabled(false)
                 .role(role)
+                .id(idUser)
                 .build();
     }
 
